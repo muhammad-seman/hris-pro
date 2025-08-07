@@ -23,7 +23,10 @@ const Breadcrumb = () => {
         for (let child of menu.children) {
           if (child.path === path) {
             // Check if main menu path actually exists as a route
-            const hasMainRoute = menu.path && !menu.path.includes('/employees'); // Employee Management doesn't have main route
+            const hasMainRoute = menu.path && 
+              !menu.path.includes('/employees') && 
+              !menu.path.includes('/attendance') && 
+              !menu.path.includes('/leave'); // Employee Management, Time Attendance, and Leave Management don't have main routes
             
             breadcrumbPath = [
               { title: menu.title, path: menu.path, icon: menu.icon, clickable: hasMainRoute },

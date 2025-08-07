@@ -19,6 +19,12 @@ import AttendanceReports from './pages/AttendanceReports';
 import ShiftManagement from './pages/ShiftManagement';
 import OvertimeManagement from './pages/OvertimeManagement';
 import ClockInOut from './pages/ClockInOut';
+import LeaveRequests from './pages/LeaveRequests';
+import LeaveCalendar from './pages/LeaveCalendar';
+import LeavePolicies from './pages/LeavePolicies';
+import LeaveBalance from './pages/LeaveBalance';
+import LeaveApprovals from './pages/LeaveApprovals';
+import HolidayManagement from './pages/HolidayManagement';
 
 function App() {
   return (
@@ -45,6 +51,12 @@ function App() {
           <Route path="/attendance/shifts" element={<ShiftManagement />} />
           <Route path="/attendance/overtime" element={<OvertimeManagement />} />
           <Route path="/attendance/clockin" element={<ClockInOut />} />
+          <Route path="/leave/requests" element={<LeaveRequests />} />
+          <Route path="/leave/calendar" element={<LeaveCalendar />} />
+          <Route path="/leave/policies" element={<LeavePolicies />} />
+          <Route path="/leave/balance" element={<LeaveBalance />} />
+          <Route path="/leave/approvals" element={<LeaveApprovals />} />
+          <Route path="/leave/holidays" element={<HolidayManagement />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
