@@ -26,7 +26,8 @@ const Breadcrumb = () => {
             const hasMainRoute = menu.path && 
               !menu.path.includes('/employees') && 
               !menu.path.includes('/attendance') && 
-              !menu.path.includes('/leave'); // Employee Management, Time Attendance, and Leave Management don't have main routes
+              !menu.path.includes('/leave') && 
+              !menu.path.includes('/payroll'); // Employee Management, Time Attendance, Leave Management, and Payroll Management don't have main routes
             
             breadcrumbPath = [
               { title: menu.title, path: menu.path, icon: menu.icon, clickable: hasMainRoute },

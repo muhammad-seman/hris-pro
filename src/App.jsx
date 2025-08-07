@@ -25,6 +25,12 @@ import LeavePolicies from './pages/LeavePolicies';
 import LeaveBalance from './pages/LeaveBalance';
 import LeaveApprovals from './pages/LeaveApprovals';
 import HolidayManagement from './pages/HolidayManagement';
+import PayrollProcessing from './pages/PayrollProcessing';
+import SalaryStructure from './pages/SalaryStructure';
+import BenefitsAdministration from './pages/BenefitsAdministration';
+import TaxManagement from './pages/TaxManagement';
+import BonusIncentives from './pages/BonusIncentives';
+import Payslips from './pages/Payslips';
 
 function App() {
   return (
@@ -57,6 +63,12 @@ function App() {
           <Route path="/leave/balance" element={<LeaveBalance />} />
           <Route path="/leave/approvals" element={<LeaveApprovals />} />
           <Route path="/leave/holidays" element={<HolidayManagement />} />
+          <Route path="/payroll/processing" element={<PayrollProcessing />} />
+          <Route path="/payroll/structure" element={<SalaryStructure />} />
+          <Route path="/payroll/benefits" element={<BenefitsAdministration />} />
+          <Route path="/payroll/tax" element={<TaxManagement />} />
+          <Route path="/payroll/bonus" element={<BonusIncentives />} />
+          <Route path="/payroll/payslips" element={<Payslips />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
