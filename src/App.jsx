@@ -31,6 +31,7 @@ import BenefitsAdministration from './pages/BenefitsAdministration';
 import TaxManagement from './pages/TaxManagement';
 import BonusIncentives from './pages/BonusIncentives';
 import Payslips from './pages/Payslips';
+import GoalSetting from './pages/GoalSetting';
 
 function App() {
   return (
@@ -69,6 +70,7 @@ function App() {
           <Route path="/payroll/tax" element={<TaxManagement />} />
           <Route path="/payroll/bonus" element={<BonusIncentives />} />
           <Route path="/payroll/payslips" element={<Payslips />} />
+          <Route path="/performance/goals" element={<GoalSetting />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
