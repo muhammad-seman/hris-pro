@@ -436,7 +436,7 @@ const OvertimeManagement = () => {
             <h4 className="font-semibold text-gray-800 dark:text-white mb-4">Rate Configuration</h4>
             <div className="space-y-3">
               <div className="flex justify-between items-center">
-                <span className="text-gray-600 dark:text-gray-400">Standard Overtime (>40h/week)</span>
+                <span className="text-gray-600 dark:text-gray-400">Standard Overtime (&gt;40h/week)</span>
                 <span className="font-medium text-gray-800 dark:text-white">1.5x</span>
               </div>
               <div className="flex justify-between items-center">
@@ -467,14 +467,14 @@ const OvertimeManagement = () => {
               <div className="flex items-start space-x-2">
                 <Icon name="ClockIcon" className="w-5 h-5 text-blue-600 dark:text-blue-400 mt-0.5" />
                 <div>
-                  <p className="text-sm text-gray-800 dark:text-white">Require approval for >2 hours</p>
+                  <p className="text-sm text-gray-800 dark:text-white">Require approval for &gt;2 hours</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">Must be approved by department head</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2">
                 <Icon name="ExclamationTriangleIcon" className="w-5 h-5 text-yellow-600 dark:text-yellow-400 mt-0.5" />
                 <div>
-                  <p className="text-sm text-gray-800 dark:text-white">Executive approval for >8 hours</p>
+                  <p className="text-sm text-gray-800 dark:text-white">Executive approval for &gt;8 hours</p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">Requires C-level authorization</p>
                 </div>
               </div>

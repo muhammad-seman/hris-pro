@@ -74,10 +74,10 @@ export const menuData = [
     children: [
       { id: 'goals', title: 'Goal Setting', path: '/performance/goals' },
       { id: 'reviews', title: 'Performance Reviews', path: '/performance/reviews' },
-      { id: 'kpi-tracking', title: 'KPI Tracking', path: '/performance/kpi-tracking' },
+      { id: 'kpi-tracking', title: 'KPI Tracking', path: '/performance/kpi' },
       { id: 'feedback', title: '360° Feedback', path: '/performance/feedback' },
-      { id: 'development', title: 'Career Development', path: '/performance/development' },
-      { id: 'training-records', title: 'Training Records', path: '/performance/training-records' },
+      { id: 'development', title: 'Career Development', path: '/performance/career' },
+      { id: 'training-records', title: 'Training Records', path: '/performance/training' },
     ]
   },
   {

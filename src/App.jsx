@@ -32,6 +32,17 @@ import TaxManagement from './pages/TaxManagement';
 import BonusIncentives from './pages/BonusIncentives';
 import Payslips from './pages/Payslips';
 import GoalSetting from './pages/GoalSetting';
+import PerformanceReviews from './pages/PerformanceReviews';
+import KPITracking from './pages/KPITracking';
+import FeedbackManagement from './pages/FeedbackManagement';
+import CareerDevelopment from './pages/CareerDevelopment';
+import TrainingRecords from './pages/TrainingRecords';
+import TrainingPrograms from './pages/TrainingPrograms';
+import CourseCatalog from './pages/CourseCatalog';
+import CertificationsPage from './pages/CertificationsPage';
+import SkillsAssessment from './pages/SkillsAssessment';
+import LearningPaths from './pages/LearningPaths';
+import TrainingCalendar from './pages/TrainingCalendar';
 
 function App() {
   return (
@@ -71,6 +82,17 @@ function App() {
           <Route path="/payroll/bonus" element={<BonusIncentives />} />
           <Route path="/payroll/payslips" element={<Payslips />} />
           <Route path="/performance/goals" element={<GoalSetting />} />
+          <Route path="/performance/reviews" element={<PerformanceReviews />} />
+          <Route path="/performance/kpi" element={<KPITracking />} />
+          <Route path="/performance/feedback" element={<FeedbackManagement />} />
+          <Route path="/performance/career" element={<CareerDevelopment />} />
+          <Route path="/performance/training" element={<TrainingRecords />} />
+          <Route path="/learning/programs" element={<TrainingPrograms />} />
+          <Route path="/learning/catalog" element={<CourseCatalog />} />
+          <Route path="/learning/certifications" element={<CertificationsPage />} />
+          <Route path="/learning/assessment" element={<SkillsAssessment />} />
+          <Route path="/learning/paths" element={<LearningPaths />} />
+          <Route path="/learning/training-calendar" element={<TrainingCalendar />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>
