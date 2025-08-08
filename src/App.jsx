@@ -43,6 +43,12 @@ import CertificationsPage from './pages/CertificationsPage';
 import SkillsAssessment from './pages/SkillsAssessment';
 import LearningPaths from './pages/LearningPaths';
 import TrainingCalendar from './pages/TrainingCalendar';
+import JobPostings from './pages/JobPostings';
+import CandidatePipeline from './pages/CandidatePipeline';
+import InterviewScheduling from './pages/InterviewScheduling';
+import OfferManagement from './pages/OfferManagement';
+import ApplicantTracking from './pages/ApplicantTracking';
+import RecruitmentAnalytics from './pages/RecruitmentAnalytics';
 
 function App() {
   return (
@@ -93,6 +99,12 @@ function App() {
           <Route path="/learning/assessment" element={<SkillsAssessment />} />
           <Route path="/learning/paths" element={<LearningPaths />} />
           <Route path="/learning/training-calendar" element={<TrainingCalendar />} />
+          <Route path="/recruitment/job-postings" element={<JobPostings />} />
+          <Route path="/recruitment/candidate-pipeline" element={<CandidatePipeline />} />
+          <Route path="/recruitment/interview-scheduling" element={<InterviewScheduling />} />
+          <Route path="/recruitment/offer-management" element={<OfferManagement />} />
+          <Route path="/recruitment/applicant-tracking" element={<ApplicantTracking />} />
+          <Route path="/recruitment/analytics" element={<RecruitmentAnalytics />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>

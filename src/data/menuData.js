@@ -100,12 +100,12 @@ export const menuData = [
     icon: 'BriefcaseIcon',
     path: '/recruitment',
     children: [
-      { id: 'jobs', title: 'Job Postings', path: '/recruitment/jobs' },
-      { id: 'pipeline', title: 'Candidate Pipeline', path: '/recruitment/pipeline' },
-      { id: 'interviews', title: 'Interview Scheduling', path: '/recruitment/interviews' },
-      { id: 'offers', title: 'Offer Management', path: '/recruitment/offers' },
-      { id: 'tracking', title: 'Applicant Tracking', path: '/recruitment/tracking' },
-      { id: 'analytics', title: 'Recruitment Analytics', path: '/recruitment/analytics' },
+      { id: 'job-postings', title: 'Job Postings', path: '/recruitment/job-postings' },
+      { id: 'candidate-pipeline', title: 'Candidate Pipeline', path: '/recruitment/candidate-pipeline' },
+      { id: 'interview-scheduling', title: 'Interview Scheduling', path: '/recruitment/interview-scheduling' },
+      { id: 'offer-management', title: 'Offer Management', path: '/recruitment/offer-management' },
+      { id: 'applicant-tracking', title: 'Applicant Tracking', path: '/recruitment/applicant-tracking' },
+      { id: 'recruitment-analytics', title: 'Recruitment Analytics', path: '/recruitment/analytics' },
     ]
   },
   {
