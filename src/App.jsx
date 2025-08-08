@@ -49,6 +49,18 @@ import InterviewScheduling from './pages/InterviewScheduling';
 import OfferManagement from './pages/OfferManagement';
 import ApplicantTracking from './pages/ApplicantTracking';
 import RecruitmentAnalytics from './pages/RecruitmentAnalytics';
+import UserManagement from './pages/UserManagement';
+import RolePermissions from './pages/RolePermissions';
+import CompanySettings from './pages/CompanySettings';
+import DepartmentManagement from './pages/DepartmentManagement';
+import PolicyManagement from './pages/PolicyManagement';
+import AuditLogs from './pages/AuditLogs';
+import HRAnalytics from './pages/HRAnalytics';
+import CustomReports from './pages/CustomReports';
+import DataExport from './pages/DataExport';
+import ComplianceReports from './pages/ComplianceReports';
+import TrendAnalysis from './pages/TrendAnalysis';
+import PredictiveAnalytics from './pages/PredictiveAnalytics';
 
 function App() {
   return (
@@ -105,6 +117,18 @@ function App() {
           <Route path="/recruitment/offer-management" element={<OfferManagement />} />
           <Route path="/recruitment/applicant-tracking" element={<ApplicantTracking />} />
           <Route path="/recruitment/analytics" element={<RecruitmentAnalytics />} />
+          <Route path="/administration/users" element={<UserManagement />} />
+          <Route path="/administration/roles" element={<RolePermissions />} />
+          <Route path="/administration/company" element={<CompanySettings />} />
+          <Route path="/administration/departments" element={<DepartmentManagement />} />
+          <Route path="/administration/policies" element={<PolicyManagement />} />
+          <Route path="/administration/audit" element={<AuditLogs />} />
+          <Route path="/reports/hr-analytics" element={<HRAnalytics />} />
+          <Route path="/reports/custom" element={<CustomReports />} />
+          <Route path="/reports/export" element={<DataExport />} />
+          <Route path="/reports/compliance" element={<ComplianceReports />} />
+          <Route path="/reports/trends" element={<TrendAnalysis />} />
+          <Route path="/reports/predictive" element={<PredictiveAnalytics />} />
           <Route path="/" element={<Navigate to="/dashboard" replace />} />
         </Routes>
       </Router>

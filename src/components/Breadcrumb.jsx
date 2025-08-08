@@ -28,7 +28,11 @@ const Breadcrumb = () => {
               !menu.path.includes('/attendance') && 
               !menu.path.includes('/leave') && 
               !menu.path.includes('/payroll') && 
-              !menu.path.includes('/performance'); // Employee Management, Time Attendance, Leave Management, Payroll Management, and Performance Management don't have main routes
+              !menu.path.includes('/performance') &&
+              !menu.path.includes('/learning') &&
+              !menu.path.includes('/recruitment') &&
+              !menu.path.includes('/administration') &&
+              !menu.path.includes('/reports'); // Employee Management, Time Attendance, Leave Management, Payroll Management, Performance Management, Learning & Development, Recruitment, Administration, and Reports & Analytics don't have main routes
             
             breadcrumbPath = [
               { title: menu.title, path: menu.path, icon: menu.icon, clickable: hasMainRoute },
