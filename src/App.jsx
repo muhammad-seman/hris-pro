@@ -1,66 +1,81 @@
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ThemeProvider } from './context/ThemeContext';
 import { Dashboard, Login } from './pages';
-import Overview from './pages/Dashboard/Overview';
-import Analytics from './pages/Dashboard/Analytics';
-import KPI from './pages/Dashboard/KPI';
-import Executive from './pages/Dashboard/Executive';
+import { Overview, Analytics, KPI, Executive } from './components/Dashboard';
 import ProfileSettings from './pages/ProfileSettings';
 import AccountSettings from './pages/AccountSettings';
 import HelpSupport from './pages/HelpSupport';
-import EmployeeDirectory from './pages/EmployeeDirectory';
-import EmployeeProfiles from './pages/EmployeeProfiles';
-import OnboardingProcess from './pages/OnboardingProcess';
-import OffboardingProcess from './pages/OffboardingProcess';
-import EmployeeHierarchy from './pages/EmployeeHierarchy';
-import SkillsManagement from './pages/SkillsManagement';
-import TimeTracking from './pages/TimeTracking';
-import AttendanceReports from './pages/AttendanceReports';
-import ShiftManagement from './pages/ShiftManagement';
-import OvertimeManagement from './pages/OvertimeManagement';
-import ClockInOut from './pages/ClockInOut';
-import LeaveRequests from './pages/LeaveRequests';
-import LeaveCalendar from './pages/LeaveCalendar';
-import LeavePolicies from './pages/LeavePolicies';
-import LeaveBalance from './pages/LeaveBalance';
-import LeaveApprovals from './pages/LeaveApprovals';
-import HolidayManagement from './pages/HolidayManagement';
-import PayrollProcessing from './pages/PayrollProcessing';
-import SalaryStructure from './pages/SalaryStructure';
-import BenefitsAdministration from './pages/BenefitsAdministration';
-import TaxManagement from './pages/TaxManagement';
-import BonusIncentives from './pages/BonusIncentives';
-import Payslips from './pages/Payslips';
-import GoalSetting from './pages/GoalSetting';
-import PerformanceReviews from './pages/PerformanceReviews';
-import KPITracking from './pages/KPITracking';
-import FeedbackManagement from './pages/FeedbackManagement';
-import CareerDevelopment from './pages/CareerDevelopment';
-import TrainingRecords from './pages/TrainingRecords';
-import TrainingPrograms from './pages/TrainingPrograms';
-import CourseCatalog from './pages/CourseCatalog';
-import CertificationsPage from './pages/CertificationsPage';
-import SkillsAssessment from './pages/SkillsAssessment';
-import LearningPaths from './pages/LearningPaths';
-import TrainingCalendar from './pages/TrainingCalendar';
-import JobPostings from './pages/JobPostings';
-import CandidatePipeline from './pages/CandidatePipeline';
-import InterviewScheduling from './pages/InterviewScheduling';
-import OfferManagement from './pages/OfferManagement';
-import ApplicantTracking from './pages/ApplicantTracking';
-import RecruitmentAnalytics from './pages/RecruitmentAnalytics';
-import UserManagement from './pages/UserManagement';
-import RolePermissions from './pages/RolePermissions';
-import CompanySettings from './pages/CompanySettings';
-import DepartmentManagement from './pages/DepartmentManagement';
-import PolicyManagement from './pages/PolicyManagement';
-import AuditLogs from './pages/AuditLogs';
-import HRAnalytics from './pages/HRAnalytics';
-import CustomReports from './pages/CustomReports';
-import DataExport from './pages/DataExport';
-import ComplianceReports from './pages/ComplianceReports';
-import TrendAnalysis from './pages/TrendAnalysis';
-import PredictiveAnalytics from './pages/PredictiveAnalytics';
+import {
+  EmployeeDirectory,
+  EmployeeProfiles,
+  OnboardingProcess,
+  OffboardingProcess,
+  EmployeeHierarchy,
+  SkillsManagement
+} from './pages/employees';
+import {
+  TimeTracking,
+  AttendanceReports,
+  ShiftManagement,
+  OvertimeManagement,
+  ClockInOut
+} from './pages/attendance';
+import {
+  LeaveRequests,
+  LeaveCalendar,
+  LeavePolicies,
+  LeaveBalance,
+  LeaveApprovals,
+  HolidayManagement
+} from './pages/leave';
+import {
+  PayrollProcessing,
+  SalaryStructure,
+  BenefitsAdministration,
+  TaxManagement,
+  BonusIncentives,
+  Payslips
+} from './pages/payroll';
+import {
+  GoalSetting,
+  PerformanceReviews,
+  KPITracking,
+  FeedbackManagement,
+  CareerDevelopment,
+  TrainingRecords
+} from './pages/performance';
+import {
+  TrainingPrograms,
+  CourseCatalog,
+  Certifications,
+  SkillsAssessment,
+  LearningPaths,
+  TrainingCalendar
+} from './pages/learning';
+import {
+  JobPostings,
+  CandidatePipeline,
+  InterviewScheduling,
+  OfferManagement,
+  ApplicantTracking,
+  RecruitmentAnalytics
+} from './pages/recruitment';
+import {
+  UserManagement,
+  RolePermissions,
+  CompanySettings,
+  DepartmentManagement,
+  PolicyManagement,
+  AuditLogs
+} from './pages/administration';
+import {
+  HRAnalytics,
+  CustomReports,
+  DataExport,
+  ComplianceReports,
+  TrendAnalysis,
+  PredictiveAnalytics
+} from './pages/reports';
 
 function App() {
   return (
@@ -107,7 +122,7 @@ function App() {
           <Route path="/performance/training" element={<TrainingRecords />} />
           <Route path="/learning/programs" element={<TrainingPrograms />} />
           <Route path="/learning/catalog" element={<CourseCatalog />} />
-          <Route path="/learning/certifications" element={<CertificationsPage />} />
+          <Route path="/learning/certifications" element={<Certifications />} />
           <Route path="/learning/assessment" element={<SkillsAssessment />} />
           <Route path="/learning/paths" element={<LearningPaths />} />
           <Route path="/learning/training-calendar" element={<TrainingCalendar />} />
