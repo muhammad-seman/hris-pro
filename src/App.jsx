@@ -9,12 +9,9 @@ import {
   EmployeeDirectory,
   EmployeeProfiles,
   OnboardingProcess,
-  OffboardingProcess,
-  EmployeeHierarchy,
-  SkillsManagement
+  OffboardingProcess
 } from './pages/employees';
 import {
-  TimeTracking,
   AttendanceReports,
   ShiftManagement,
   OvertimeManagement,
@@ -37,28 +34,24 @@ import {
   Payslips
 } from './pages/payroll';
 import {
-  GoalSetting,
+  GoalsKPITracking,
   PerformanceReviews,
-  KPITracking,
   FeedbackManagement,
   CareerDevelopment,
-  TrainingRecords
+  SkillsManagement
 } from './pages/performance';
 import {
   TrainingPrograms,
   CourseCatalog,
   Certifications,
-  SkillsAssessment,
-  LearningPaths,
-  TrainingCalendar
+  LearningPaths
 } from './pages/learning';
 import {
   JobPostings,
   CandidatePipeline,
   InterviewScheduling,
   OfferManagement,
-  ApplicantTracking,
-  RecruitmentAnalytics
+  ApplicantTracking
 } from './pages/recruitment';
 import {
   UserManagement,
@@ -74,7 +67,8 @@ import {
   DataExport,
   ComplianceReports,
   TrendAnalysis,
-  PredictiveAnalytics
+  PredictiveAnalytics,
+  RecruitmentAnalytics
 } from './pages/reports';
 
 function App() {
@@ -95,13 +89,10 @@ function App() {
           <Route path="/employee-profiles" element={<EmployeeProfiles />} />
           <Route path="/onboarding-process" element={<OnboardingProcess />} />
           <Route path="/offboarding-process" element={<OffboardingProcess />} />
-          <Route path="/employee-hierarchy" element={<EmployeeHierarchy />} />
-          <Route path="/skills-management" element={<SkillsManagement />} />
-          <Route path="/attendance/tracking" element={<TimeTracking />} />
+          <Route path="/attendance/clockin" element={<ClockInOut />} />
           <Route path="/attendance/reports" element={<AttendanceReports />} />
           <Route path="/attendance/shifts" element={<ShiftManagement />} />
           <Route path="/attendance/overtime" element={<OvertimeManagement />} />
-          <Route path="/attendance/clockin" element={<ClockInOut />} />
           <Route path="/leave/requests" element={<LeaveRequests />} />
           <Route path="/leave/calendar" element={<LeaveCalendar />} />
           <Route path="/leave/policies" element={<LeavePolicies />} />
@@ -114,24 +105,21 @@ function App() {
           <Route path="/payroll/tax" element={<TaxManagement />} />
           <Route path="/payroll/bonus" element={<BonusIncentives />} />
           <Route path="/payroll/payslips" element={<Payslips />} />
-          <Route path="/performance/goals" element={<GoalSetting />} />
+          <Route path="/performance/goals" element={<GoalsKPITracking />} />
           <Route path="/performance/reviews" element={<PerformanceReviews />} />
-          <Route path="/performance/kpi" element={<KPITracking />} />
           <Route path="/performance/feedback" element={<FeedbackManagement />} />
           <Route path="/performance/career" element={<CareerDevelopment />} />
-          <Route path="/performance/training" element={<TrainingRecords />} />
+          <Route path="/performance/skills" element={<SkillsManagement />} />
           <Route path="/learning/programs" element={<TrainingPrograms />} />
           <Route path="/learning/catalog" element={<CourseCatalog />} />
           <Route path="/learning/certifications" element={<Certifications />} />
-          <Route path="/learning/assessment" element={<SkillsAssessment />} />
           <Route path="/learning/paths" element={<LearningPaths />} />
-          <Route path="/learning/training-calendar" element={<TrainingCalendar />} />
           <Route path="/recruitment/job-postings" element={<JobPostings />} />
           <Route path="/recruitment/candidate-pipeline" element={<CandidatePipeline />} />
           <Route path="/recruitment/interview-scheduling" element={<InterviewScheduling />} />
           <Route path="/recruitment/offer-management" element={<OfferManagement />} />
           <Route path="/recruitment/applicant-tracking" element={<ApplicantTracking />} />
-          <Route path="/recruitment/analytics" element={<RecruitmentAnalytics />} />
+          <Route path="/reports/recruitment-analytics" element={<RecruitmentAnalytics />} />
           <Route path="/administration/users" element={<UserManagement />} />
           <Route path="/administration/roles" element={<RolePermissions />} />
           <Route path="/administration/company" element={<CompanySettings />} />

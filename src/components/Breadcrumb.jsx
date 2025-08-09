@@ -6,42 +6,36 @@ const Breadcrumb = () => {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter(x => x);
 
-  // Find the current menu item and its parent
+  // Find the current menu item and its category
   const findMenuPath = (path) => {
-    const segments = path.split('/').filter(x => x);
     let breadcrumbPath = [];
+    let currentCategory = null;
 
-    for (let menu of menuData) {
-      // Check if this is a main menu match
-      if (menu.path === path) {
-        breadcrumbPath = [{ title: menu.title, path: menu.path, icon: menu.icon, clickable: true }];
-        break;
+    for (let i = 0; i < menuData.length; i++) {
+      const menu = menuData[i];
+      
+      // Track current category
+      if (menu.category) {
+        currentCategory = menu;
+        continue;
       }
 
-      // Check submenu items
-      if (menu.children) {
-        for (let child of menu.children) {
-          if (child.path === path) {
-            // Check if main menu path actually exists as a route
-            const hasMainRoute = menu.path && 
-              !menu.path.includes('/employees') && 
-              !menu.path.includes('/attendance') && 
-              !menu.path.includes('/leave') && 
-              !menu.path.includes('/payroll') && 
-              !menu.path.includes('/performance') &&
-              !menu.path.includes('/learning') &&
-              !menu.path.includes('/recruitment') &&
-              !menu.path.includes('/administration') &&
-              !menu.path.includes('/reports'); // Employee Management, Time Attendance, Leave Management, Payroll Management, Performance Management, Learning & Development, Recruitment, Administration, and Reports & Analytics don't have main routes
-            
-            breadcrumbPath = [
-              { title: menu.title, path: menu.path, icon: menu.icon, clickable: hasMainRoute },
-              { title: child.title, path: child.path, clickable: true }
-            ];
-            break;
+      // Check if this menu item matches the current path
+      if (menu.path === path && currentCategory) {
+        breadcrumbPath = [
+          { 
+            title: currentCategory.title, 
+            path: null, // Categories are not clickable
+            clickable: false 
+          },
+          { 
+            title: menu.title, 
+            path: menu.path, 
+            icon: menu.icon, 
+            clickable: true 
           }
-        }
-        if (breadcrumbPath.length > 0) break;
+        ];
+        break;
       }
     }
 

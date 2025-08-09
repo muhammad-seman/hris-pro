@@ -6,72 +6,26 @@ import Icon from '../Icon';
 
 const Sidebar = () => {
   const { sidebarLayout, sidebarCollapsed, toggleSidebarCollapsed } = useTheme();
-  const [expandedMenus, setExpandedMenus] = useState({});
-  const [activeSubmenu, setActiveSubmenu] = useState(null);
-  const menuRefs = useRef({});
   const sidebarRef = useRef(null);
 
   // Only vertical layout is supported now
   const isCollapsed = sidebarCollapsed;
 
-  const toggleMenu = (menuId) => {
-    // Vertical accordion behavior only
-    setExpandedMenus(prev => ({
-      ...prev,
-      [menuId]: !prev[menuId]
-    }));
-  };
-
-  const handleCollapsedMenuClick = (menuId) => {
-    // When clicking any menu item in collapsed mode, expand the sidebar
-    toggleSidebarCollapsed();
-    
-    // If the menu has children, expand it after the sidebar expands
-    const menu = menuData.find(m => m.id === menuId);
-    if (menu?.children && menu.children.length > 0) {
-      // Small delay to allow sidebar expand animation to start
-      setTimeout(() => {
-        setExpandedMenus(prev => ({
-          ...prev,
-          [menuId]: true
-        }));
-      }, 100);
-    }
-  };
-
-
-  // Close submenu when clicking outside (only needed for expanded mode)
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
-        setActiveSubmenu(null);
-      }
-    };
-
-    if (!isCollapsed) {
-      document.addEventListener('mousedown', handleClickOutside);
-      return () => {
-        document.removeEventListener('mousedown', handleClickOutside);
-      };
-    }
-  }, [isCollapsed]);
-
   // Calculate optimal sidebar width
   const calculateOptimalWidth = () => {
-    const longestMenuTitle = menuData.reduce((longest, menu) => {
-      const menuLength = menu.title.length;
-      const childrenLength = menu.children ? 
-        Math.max(...menu.children.map(child => child.title.length)) : 0;
-      const maxLength = Math.max(menuLength, childrenLength);
-      return maxLength > longest ? maxLength : longest;
-    }, 0);
+    const longestMenuTitle = menuData
+      .filter(menu => !menu.category)
+      .reduce((longest, menu) => {
+        const menuLength = menu.title.length;
+        return menuLength > longest ? menuLength : longest;
+      }, 0);
     
     // Base width + character width estimation + padding + icon space
     const baseWidth = 64; // Icon space + padding
     const charWidth = 8; // Approximate character width in px
-    const padding = 48; // Additional padding and chevron space
+    const padding = 48; // Additional padding
     
-    return Math.max(256, baseWidth + (longestMenuTitle * charWidth) + padding);
+    return Math.max(280, baseWidth + (longestMenuTitle * charWidth) + padding);
   };
 
   const optimalWidth = calculateOptimalWidth();
@@ -126,21 +80,28 @@ const Sidebar = () => {
         <nav className="p-2 space-y-1 overflow-y-auto h-full pb-20">
           {menuData.map((menu) => (
             <div key={menu.id}>
-              {/* Main Menu Item */}
-              <div
-                ref={el => menuRefs.current[menu.id] = el}
-                onClick={() => isCollapsed ? 
-                  handleCollapsedMenuClick(menu.id) : 
-                  (menu.children && toggleMenu(menu.id))
-                }
-                className={`
-                  flex items-center justify-between p-3 rounded-lg text-gray-700 dark:text-gray-300 
-                  hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors cursor-pointer
-                  ${isCollapsed ? 'justify-center' : ''}
-                  ${expandedMenus[menu.id] || activeSubmenu === menu.id ? 'bg-gray-100 dark:bg-gray-700' : ''}
-                `}
-                title={isCollapsed ? `Click to expand and access ${menu.title}` : ''}
-              >
+              {menu.category ? (
+                /* Category Header */
+                !isCollapsed && (
+                  <div className="px-3 py-2 mt-4 first:mt-0">
+                    <h3 className="text-sm font-extrabold text-gray-600 dark:text-gray-300 uppercase tracking-wider">
+                      {menu.title}
+                    </h3>
+                  </div>
+                )
+              ) : (
+                /* Menu Item */
+                <NavLink
+                  to={menu.path}
+                  className={({ isActive }) =>
+                    `flex items-center p-3 rounded-lg transition-colors ${
+                      isActive
+                        ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
+                        : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700'
+                    } ${isCollapsed ? 'justify-center' : ''}`
+                  }
+                  title={isCollapsed ? menu.title : ''}
+                >
                   <div className="flex items-center space-x-3">
                     <Icon 
                       name={menu.icon} 
@@ -150,41 +111,7 @@ const Sidebar = () => {
                       <span className="font-medium">{menu.title}</span>
                     )}
                   </div>
-                  
-                  {!isCollapsed && menu.children && (
-                    <Icon 
-                      name="ChevronDownIcon"
-                      className={`w-4 h-4 transition-transform duration-200 flex-shrink-0 ${
-                        expandedMenus[menu.id] ? 'rotate-180' : ''
-                      }`}
-                    />
-                  )}
-                </div>
-
-              {/* Accordion Submenu for Expanded Vertical */}
-              {!isCollapsed && menu.children && (
-                <div className={`
-                  overflow-hidden transition-all duration-300 ease-in-out
-                  ${expandedMenus[menu.id] ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}
-                `}>
-                  <div className="mt-1 ml-4 space-y-1">
-                    {menu.children.map((child) => (
-                      <NavLink
-                        key={child.id}
-                        to={child.path}
-                        className={({ isActive }) =>
-                          `block px-4 py-2 rounded-lg text-sm transition-colors ${
-                            isActive
-                              ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400'
-                              : 'text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-700'
-                          }`
-                        }
-                      >
-                        {child.title}
-                      </NavLink>
-                    ))}
-                  </div>
-                </div>
+                </NavLink>
               )}
             </div>
           ))}

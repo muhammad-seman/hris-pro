@@ -4,3 +4,4 @@ export { default as DataExport } from './DataExport';
 export { default as ComplianceReports } from './ComplianceReports';
 export { default as TrendAnalysis } from './TrendAnalysis';
 export { default as PredictiveAnalytics } from './PredictiveAnalytics';
+export { default as RecruitmentAnalytics } from './RecruitmentAnalytics';
